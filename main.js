@@ -175,16 +175,39 @@ console.log("Tổng lương là: " + tongLuong);
 // Nếu như number == 3
 // => "đây là số 3"
 // Ngược lại " không biết đọc"
-var number = 4;
-if(number === 1) {
-    console.log("đây là số 1");
-} else if(number === 2) {
-    console.log("đây là số 2");
-} else if(number === 3) {
-    console.log("đây là số 3");
-} else {
-    console.log("không biết đọc");
-}
+
+// var number = 4;
+// if(number === 1) {
+//     console.log("đây là số 1");
+// } else if(number === 2) {
+//     console.log("đây là số 2");
+// } else if(number === 3) {
+//     console.log("đây là số 3");
+// } else {
+//     console.log("không biết đọc");
+// }
+
+ /* Switch Case */
+ var number = 4;
+ switch(number) {
+    case 1:
+        // hanh dong
+        console.log("Đây là số 1");
+        break;
+    case 2:
+        console.log("Đây là số 2");
+        break;
+    case 3:
+        console.log("Đây là số 3");
+        break;
+    case 4:
+        console.log("Đây là số 4");
+        break;
+    default:
+        console.log("Không biết đọc");
+        break;
+ }
+
 
 /* Shop
  - Giả sử
@@ -211,3 +234,35 @@ if(soLuong >= 50 && soLuong <= 100) {
     tongTien = soLuong * donGia;
 }
 console.log("Tổng tiền là: " + tongTien);
+
+/*Xếp loại
+ - Đầu vào: toan ly hoa
+ - Xử lý
+    tính điểm TB: (toan + ly + hoa)/3
+    Xếp loại:
+    dtb >= 8.5 : giỏi
+    6.5 <= dtb <= 8.5 : khá
+    5 <= dtb <= 6.5 : TB
+    dtb < 5 : yếu
+ - Đầu ra
+  */
+ document.getElementById("dtb").onclick = function() {
+    var toan = document.getElementById("toan").value*1;
+    var ly = document.getElementById("ly").value*1;
+    var hoa = document.getElementById("hoa").value*1;
+    var dtb = (toan + ly + hoa)/3;
+    var result = 0;
+    if(dtb >= 8.5) {
+        result = "Xếp loại Giỏi";
+    } else if(6.5 <= dtb) {
+        result = "Xếp loại Khá";
+    } else if(5 <= dtb ) {
+        result = "Xếp loại Trung Bình";
+    } else if(5 > dtb ) {
+        result = "Xếp loại Yếu";
+    } else if( dtb = "") {
+        result = "Vui lòng nhập điểm ";
+    }
+    document.getElementById("xuatLoai").innerHTML = "Điểm TB là: "+ dtb.toFixed(1) + " " + result;
+ }
+ 
