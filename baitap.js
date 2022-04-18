@@ -65,17 +65,17 @@ document.getElementById("xuatLoiChao").onclick = function() {
         result = "Xin chào mẹ";
     } else if(ten == "A" ) {
         result = "Xin chào anh trai";
-    } else if(ten == "") {
-        result = "Xin hãy nhập tên";
-    } else {
+    } else if(ten == "E") {
         result = "Xin chào em gái";
+    } else if(ten == "" || ten != "B" || ten != "M" || ten != "A" || ten != "E") {
+        result = "Xin hãy nhập thông tin";
     }
     document.getElementById("thongbao1").innerHTML = result;
     document.getElementById("thongbao1").classList.add("alert-success");
 }
 
 
-/*Mô hình 3 khối bài tập 1
+/*Mô hình 3 khối bài tập 3
  + Đầu vào
     giả sử nhập số nguyên
     so1
@@ -114,17 +114,17 @@ document.getElementById("xuatSo").onclick = function() {
     document.getElementById("thongbao2").classList.add("alert-success");
 }
 
-/*Mô hình 3 khối bài tập 3
+/*Mô hình 3 khối bài tập 4
  + Đầu vào
      giả sử nhập canh hình tam giác
-    a
-    b 
-    c
+    canh1
+    canh2
+    canh3
 
  + Xử lý
-    nếu a bằng b và khác c => tam giác cân
-    nếu a bằng b và bằng c => tam giac đều
-    nếu a*a + b*b bằng c*c => tam giác vuông
+    nếu canh1 bằng canh2 và khác canh3 => tam giác cân
+    nếu canh1 bằng canh2 và bằng canh3 => tam giac đều
+    nếu canh1*canh1 + canh2*canh2 bằng canh3*canh3 => tam giác vuông
  + Đầu ra
 */
 document.getElementById("XuatLoaiTamGiac").onclick = function() {
@@ -138,7 +138,242 @@ document.getElementById("XuatLoaiTamGiac").onclick = function() {
         result = "Tam giác đều";
     } else if(canh1*canh1 + canh2*canh2 == canh3*canh3) {
         result = "Tam giác vuông"
+    } else {
+        result = "Không xác định"
     }
     document.getElementById("thongbao3").innerHTML = result;
     document.getElementById("thongbao3").classList.add("alert-success");
+}
+
+/*Mô hình 3 khối bài tập 1 nâng cao
+ + Đầu vào
+     giả sử nhập ngày tháng năm vào xuất ra ngày kế tiếp
+    ngay 
+    thang
+    nam
+
+ + Xử lý
+    nếu nhập ngaỳ 1 tháng 1 năm 1 => tiến lên 1 ngày là ngày 2 tháng 1 năm 1 nhưng dựa vào số ngày tối đa trong tháng (ví dụ tháng 1 có 31 ngày)
+ + Đầu ra
+*/
+document.getElementById("xuatNgaySau").onclick = function() {
+    var ngay = document.getElementById("ngay").value*1;
+    var thang = document.getElementById("thang").value*1;
+    var nam = document.getElementById("nam").value*1;
+    result = 0;
+    if( ngay =="" || thang == "" || nam == "") {
+        result = "Xin nhập đầy đủ ngày tháng năm";        
+    } else if(ngay < 31 && thang ==1 ) {
+        result = "Ngày: "+ (ngay + 1)+ " tháng: " + thang + " năm: "+ nam;
+    } else if( ngay == 31 && thang == 1) {
+        result = "Ngày: "+ 1 + " tháng: " + (thang + 1) + " năm: "+ nam; 
+    } else if( ngay < 28 && thang == 2) {
+        result = "Ngày: "+ (ngay + 1)+ " tháng: " + thang + " năm: "+ nam; 
+    } else if( ngay == 28 && thang == 2) {
+        result = "Ngày: "+ 1 + " tháng: " + (thang + 1) + " năm: "+ nam; 
+    } else if( ngay < 31 && thang == 3) {
+        result = "Ngày: "+ (ngay + 1)+ " tháng: " + thang + " năm: "+ nam; 
+    } else if( ngay == 31 && thang == 3) {
+        result = "Ngày: "+ 1 + " tháng: " + (thang + 1) + " năm: "+ nam; 
+    }else if( ngay < 30 && thang == 4) {
+        result = "Ngày: "+ (ngay + 1)+ " tháng: " + thang + " năm: "+ nam; 
+    } else if( ngay == 30 && thang == 4) {
+        result = "Ngày: "+ 1 + " tháng: " + (thang + 1) + " năm: "+ nam; 
+    }else if( ngay < 31 && thang == 5) {
+        result = "Ngày: "+ (ngay + 1)+ " tháng: " + thang + " năm: "+ nam; 
+    } else if( ngay == 31 && thang == 5) {
+        result = "Ngày: "+ 1 + " tháng: " + (thang + 1) + " năm: "+ nam; 
+    }else if( ngay < 30 && thang == 6) {
+        result = "Ngày: "+ (ngay + 1)+ " tháng: " + thang + " năm: "+ nam; 
+    } else if( ngay == 30 && thang == 6) {
+        result = "Ngày: "+ 1 + " tháng: " + (thang + 1) + " năm: "+ nam; 
+    }else if( ngay < 31 && thang == 7) {
+        result = "Ngày: "+ (ngay + 1)+ " tháng: " + thang + " năm: "+ nam; 
+    } else if( ngay == 31 && thang == 7) {
+        result = "Ngày: "+ 1 + " tháng: " + (thang + 1) + " năm: "+ nam; 
+    }else if( ngay < 31 && thang == 8) {
+        result = "Ngày: "+ (ngay + 1)+ " tháng: " + thang + " năm: "+ nam; 
+    } else if( ngay == 31 && thang == 8) {
+        result = "Ngày: "+ 1 + " tháng: " + (thang + 1) + " năm: "+ nam; 
+    }else if( ngay < 30 && thang == 9) {
+        result = "Ngày: "+ (ngay + 1)+ " tháng: " + thang + " năm: "+ nam; 
+    } else if( ngay == 30 && thang == 9) {
+        result = "Ngày: "+ 1 + " tháng: " + (thang + 1) + " năm: "+ nam; 
+    }else if( ngay < 31 && thang == 10) {
+        result = "Ngày: "+ (ngay + 1)+ " tháng: " + thang + " năm: "+ nam; 
+    } else if( ngay == 31 && thang == 10) {
+        result = "Ngày: "+ 1 + " tháng: " + (thang + 1) + " năm: "+ nam; 
+    }else if( ngay < 30 && thang == 11) {
+        result = "Ngày: "+ (ngay + 1)+ " tháng: " + thang + " năm: "+ nam; 
+    } else if( ngay == 30 && thang == 11) {
+        result = "Ngày: "+ 1 + " tháng: " + (thang + 1) + " năm: "+ nam; 
+    }else if( ngay < 31 && thang == 12) {
+        result = "Ngày: "+ (ngay + 1)+ " tháng: " + thang + " năm: "+ nam; 
+    } else if( ngay == 31 && thang == 12) {
+        result = "Ngày: "+ 1 + " tháng: " + 1 + " năm: "+ (nam + 1); 
+    }
+    document.getElementById("thongbao4").innerHTML = result;
+    document.getElementById("thongbao4").classList.add("alert-success");
+}
+
+/*Mô hình 3 khối bài tập 1 nâng cao
+ + Đầu vào
+     giả sử nhập day month year vào xuất ra ngày trước đó
+    day
+    month
+    year
+
+ + Xử lý
+    nếu nhập ngaỳ 1 tháng 1 năm 1 => lùi đi một ngày là ngày 31 tháng 12 năm 0 nhưng dựa vào số ngày tối đa trong tháng (ví dụ tháng 1 có 31 ngày)
+ + Đầu ra
+*/
+document.getElementById("xuatNgayTruoc").onclick = function() {
+    var day = document.getElementById("day").value*1;
+    var month = document.getElementById("month").value*1;
+    var year = document.getElementById("year").value*1;
+    result = 0;
+    if( day =="" || month == "" || year == "") {
+        result = "Xin nhập đầy đủ ngày tháng năm";        
+    } else if(1 < day && day <= 31 && month == 1) {
+        result = "Day: "+ (day - 1) + " month "+ month + " year "+ year;
+    } else if( day == 1 && month == 1) {
+        result = "Day: "+ 31 + " month "+ 12 + " year " + (year - 1)
+    } else if(1 < day && day <= 28 && month == 2) {
+        result = "Day: "+ (day - 1) + " month "+ month + " year "+ year;
+    } else if( day == 1 && month == 2) {
+        result = "Day: "+ 31 + " month "+ (month - 1) + " year " + year;
+    } else if(1 < day && day <= 31 && month == 3) {
+        result = "Day: "+ (day - 1) + " month "+ month + " year "+ year;
+    } else if( day == 1 && month == 3) {
+        result = "Day: "+ 28 + " month "+ (month - 1) + " year " + year;
+    } else if(1 < day && day <= 30 && month == 4) {
+        result = "Day: "+ (day - 1) + " month "+ month + " year "+ year;
+    } else if( day == 1 && month == 4) {
+        result = "Day: "+ 31 + " month "+ (month - 1) + " year " + year;
+    } else if(1 < day && day <= 31 && month == 5) {
+        result = "Day: "+ (day - 1) + " month "+ month + " year "+ year;
+    } else if( day == 1 && month == 5) {
+        result = "Day: "+ 30 + " month "+ (month - 1) + " year " + year;
+    } else if(1 < day && day <= 30 && month == 6) {
+        result = "Day: "+ (day - 1) + " month "+ month + " year "+ year;
+    } else if( day == 1 && month == 6) {
+        result = "Day: "+ 31 + " month "+ (month - 1) + " year " + year;
+    } else if(1 < day && day <= 31 && month == 7) {
+        result = "Day: "+ (day - 1) + " month "+ month + " year "+ year;
+    } else if( day == 1 && month == 7) {
+        result = "Day: "+ 30 + " month "+ (month - 1) + " year " + year;
+    } else if(1 < day && day <= 31 && month == 8) {
+        result = "Day: "+ (day - 1) + " month "+ month + " year "+ year;
+    } else if( day == 1 && month == 8) {
+        result = "Day: "+ 31 + " month "+ (month - 1) + " year " + year;
+    } else if(1 < day && day <= 30 && month == 9) {
+        result = "Day: "+ (day - 1) + " month "+ month + " year "+ year;
+    } else if( day == 1 && month == 9) {
+        result = "Day: "+ 31 + " month "+ (month - 1) + " year " + year;
+    } else if(1 < day && day <= 31 && month == 10) {
+        result = "Day: "+ (day - 1) + " month "+ month + " year "+ year;
+    } else if( day == 1 && month == 10) {
+        result = "Day: "+ 30 + " month "+ (month - 1) + " year " + year;
+    } else if(1 < day && day <= 30 && month == 11) {
+        result = "Day: "+ (day - 1) + " month "+ month + " year "+ year;
+    } else if( day == 1 && month == 11) {
+        result = "Day: "+ 31 + " month "+ (month - 1) + " year " + year;
+    } else if(1 < day && day <= 31 && month == 12) {
+        result = "Day: "+ (day - 1) + " month "+ month + " year "+ year;
+    } else if( day == 1 && month == 12) {
+        result = "Day: "+ 30 + " month "+ (month - 1) + " year " + year;
+    }
+    document.getElementById("thongbao5").innerHTML = result;
+    document.getElementById("thongbao5").classList.add("alert-success");
+}
+
+/*Mô hình 3 khối bài tập 2 nâng cao
+ + Đầu vào
+     giả sử nhập thang năm xuất ra tháng đó có bao nhieu ngày
+    Thang
+    Nam
+
+ + Xử lý
+    nếu nhập tháng 1 => có 31 ngày
+    nhập tháng 2 => có 28 ngày 
+    nếu là năm nhuận thì số năm chia 4 có phần dư bằng 0 thì tháng 2 có 29 ngày, khác 0 thì 28 ngày
+ + Đầu ra
+*/
+document.getElementById("xuatNgay").onclick = function() {
+    var Thang = document.getElementById("Thang").value*1;
+    var Nam = document.getElementById("Nam").value*1;
+    var result = 0;
+    if( Thang == 1) {
+        result = "Số ngày của tháng là: " + 31;
+    } else if( (Nam%4) == 0 && Thang == 2) {
+        result = "Số ngày của tháng là: " + 29;
+    } else if( Thang == 2) {
+        result = "Số ngày của tháng là: " + 28;
+    } else if( Thang == 3) {
+        result = "Số ngày của tháng là: " + 31;
+    } else if( Thang == 4) {
+        result = "Số ngày của tháng là: " + 30;
+    } else if( Thang == 5) {
+        result = "Số ngày của tháng là: " + 31;
+    } else if( Thang == 6) {
+        result = "Số ngày của tháng là: " + 30;
+    } else if( Thang == 7) {
+        result = "Số ngày của tháng là: " + 31;
+    } else if( Thang == 8) {
+        result = "Số ngày của tháng là: " + 31;
+    } else if( Thang == 9) {
+        result = "Số ngày của tháng là: " + 30;
+    } else if( Thang == 10) {
+        result = "Số ngày của tháng là: " + 31;
+    } else if( Thang == 11) {
+        result = "Số ngày của tháng là: " + 30;
+    } else if( Thang == 12) {
+        result = "Số ngày của tháng là: " + 31;
+    } else if( Nam%4 == 0 && Thang == 2) {
+        result = "Số ngày của tháng là: " + 29;
+    } else (
+        result = "Xin hãy nhập số thàng và năm"
+    )
+    document.getElementById("thongbao6").innerHTML = result;
+    document.getElementById("thongbao6").classList.add("alert-success");
+}
+
+/*Mô hình 3 khối bài tập 3 nâng cao
+ + Đầu vào
+    giả sử nhập số nguyên có 3 chữ số
+    soNguyen   
+
+ + Xử lý
+    nếu nhập 111 => xuất ra cách đọc là 
+ + Đầu ra
+*/
+document.getElementById("xuatCachDoc").onclick = function() {
+    var soNguyen = document.getElementById("soNguyen").value*1;
+    var result = 0;
+    if(soNguyen <= 999 
+        && Math.floor(soNguyen%100/10) != 0 
+        && Math.floor(soNguyen%100/10) != 1 
+        && soNguyen%10 != 0) {
+        result = "Cách đọc là "+ Math.floor(soNguyen/100)+ " trăm "+ Math.floor(soNguyen%100/10)+ " mươi "+ soNguyen%10;
+    } else if(soNguyen <= 999 
+        && Math.floor(soNguyen%100/10) == 1
+        && Math.floor(soNguyen%100/10) != 0  
+        && soNguyen%10 != 0) {
+        result = "Cách đọc là "+ Math.floor(soNguyen/100)+ " trăm "+ " mười "+ soNguyen%10;    
+    } else if(soNguyen <= 999 
+        && Math.floor(soNguyen%100/10) == 0 
+        && Math.floor(soNguyen%100/10) != 1 
+        && soNguyen%10 != 0) {
+        result = "Cách đọc là "+ Math.floor(soNguyen/100)+ " trăm " + " linh "+ soNguyen%10;    
+    } else if(soNguyen <= 999
+        && Math.floor(soNguyen%100/10) != 0 
+        && Math.floor(soNguyen%100/10) != 1 
+        && soNguyen%10 == 0) {
+        result = "Cách đọc là "+ Math.floor(soNguyen/100)+ " trăm "+ Math.floor(soNguyen%100/10)+ " mươi";    
+    } else if(soNguyen <= 999
+        && soNguyen%10 != 0 ) {
+        result = "Cách đọc là " + soNguyen%10;    
+        }
+    document.getElementById("thongbao7").innerHTML = result;
+    document.getElementById("thongbao7").classList.add("alert-success");
 }
