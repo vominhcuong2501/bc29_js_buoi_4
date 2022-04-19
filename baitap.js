@@ -36,8 +36,16 @@ document.getElementById("xuatTangDan").onclick = function() {
         result = "Số tăng dần là: " + soThu1 + " đến " + soThu3 + " đến " + soThu2 ;
     } else if(soThu3 > soThu2 && soThu2 > soThu1) {
         result = "Số tăng dần là: " + soThu1 + " đến " + soThu2 + " đến " + soThu3 ;
-    } else {
+    } else if(soThu3 > soThu1 && soThu2 < soThu1) {
         result = "Số tăng dần là: " + soThu2 + " đến " + soThu1 + " đến " + soThu3 ;
+    } else if(soThu1 == soThu2 && soThu2 < soThu3) {
+        result = "Số tăng dần là: "+ soThu2 + " đến " + soThu3 ;
+    } else if(soThu1 == soThu3 && soThu2 > soThu3) {
+        result = "Số tăng dần là: "+ soThu3 + " đến " + soThu2 ;
+    } else if(soThu3 == soThu2 && soThu2 < soThu1) {
+        result = "Số tăng dần là: "+ soThu2 + " đến " + soThu1 ;
+    } else {
+        result = "Ba số bằng nhau";
     }
     console.log(result);
     document.getElementById("thongbao").innerHTML = result;
@@ -60,17 +68,17 @@ document.getElementById("xuatLoiChao").onclick = function() {
     var ten = document.getElementById("user").value;
     var result = 0;
     if(ten == "B") {
-        result = "Xin chào bố";
+        result = "bố";
     } else if(ten == "M" ) {
-        result = "Xin chào mẹ";
+        result = "mẹ";
     } else if(ten == "A" ) {
-        result = "Xin chào anh trai";
+        result = "anh trai";
     } else if(ten == "E") {
-        result = "Xin chào em gái";
+        result = "em gái";
     } else if(ten == "" || ten != "B" || ten != "M" || ten != "A" || ten != "E") {
         result = "Xin hãy nhập thông tin";
     }
-    document.getElementById("thongbao1").innerHTML = result;
+    document.getElementById("thongbao1").innerHTML = "Xin chào " + result;
     document.getElementById("thongbao1").classList.add("alert-success");
 }
 
@@ -303,38 +311,18 @@ document.getElementById("xuatNgay").onclick = function() {
     var Thang = document.getElementById("Thang").value*1;
     var Nam = document.getElementById("Nam").value*1;
     var result = 0;
-    if( Thang == 1) {
-        result = "Số ngày của tháng là: " + 31;
+    if( Thang == 1 || Thang == 3 || Thang == 5 || Thang == 7 || Thang == 8 || Thang == 10 || Thang == 12 ) {
+        result = 31;
     } else if( (Nam%4) == 0 && Thang == 2) {
-        result = "Số ngày của tháng là: " + 29;
+        result = 29;
     } else if( Thang == 2) {
-        result = "Số ngày của tháng là: " + 28;
-    } else if( Thang == 3) {
-        result = "Số ngày của tháng là: " + 31;
-    } else if( Thang == 4) {
-        result = "Số ngày của tháng là: " + 30;
-    } else if( Thang == 5) {
-        result = "Số ngày của tháng là: " + 31;
-    } else if( Thang == 6) {
-        result = "Số ngày của tháng là: " + 30;
-    } else if( Thang == 7) {
-        result = "Số ngày của tháng là: " + 31;
-    } else if( Thang == 8) {
-        result = "Số ngày của tháng là: " + 31;
-    } else if( Thang == 9) {
-        result = "Số ngày của tháng là: " + 30;
-    } else if( Thang == 10) {
-        result = "Số ngày của tháng là: " + 31;
-    } else if( Thang == 11) {
-        result = "Số ngày của tháng là: " + 30;
-    } else if( Thang == 12) {
-        result = "Số ngày của tháng là: " + 31;
-    } else if( Nam%4 == 0 && Thang == 2) {
-        result = "Số ngày của tháng là: " + 29;
-    } else (
+        result = 28;
+    } else if( Thang == 4 || Thang == 6 || Thang == 9 || Thang == 11) {
+        result = 30;
+    }else (
         result = "Xin hãy nhập số thàng và năm"
     )
-    document.getElementById("thongbao6").innerHTML = result;
+    document.getElementById("thongbao6").innerHTML = "Số ngày của tháng là: "+ result;
     document.getElementById("thongbao6").classList.add("alert-success");
 }
 
@@ -344,36 +332,76 @@ document.getElementById("xuatNgay").onclick = function() {
     soNguyen   
 
  + Xử lý
-    nếu nhập 111 => xuất ra cách đọc là 
+    nếu nhập 111 => xuất ra cách đọc
  + Đầu ra
 */
 document.getElementById("xuatCachDoc").onclick = function() {
     var soNguyen = document.getElementById("soNguyen").value*1;
+    var hangTram = Math.floor(soNguyen/100);
+    var hangChuc = Math.floor(soNguyen%100/10);
+    var hangDV = soNguyen%10;
     var result = 0;
     if(soNguyen <= 999 
-        && Math.floor(soNguyen%100/10) != 0 
-        && Math.floor(soNguyen%100/10) != 1 
-        && soNguyen%10 != 0) {
-        result = "Cách đọc là "+ Math.floor(soNguyen/100)+ " trăm "+ Math.floor(soNguyen%100/10)+ " mươi "+ soNguyen%10;
+        && hangChuc != 0 
+        && hangChuc != 1 
+        && hangDV != 0) {
+        result = "Cách đọc là "+ hangTram+ " trăm "+ hangChuc+ " mươi "+ hangDV;
     } else if(soNguyen <= 999 
-        && Math.floor(soNguyen%100/10) == 1
-        && Math.floor(soNguyen%100/10) != 0  
-        && soNguyen%10 != 0) {
-        result = "Cách đọc là "+ Math.floor(soNguyen/100)+ " trăm "+ " mười "+ soNguyen%10;    
+        && hangChuc == 1
+        && hangChuc != 0  
+        && hangDV != 0) {
+        result = "Cách đọc là "+ hangTram+ " trăm "+ " mười "+ hangDV;    
     } else if(soNguyen <= 999 
-        && Math.floor(soNguyen%100/10) == 0 
-        && Math.floor(soNguyen%100/10) != 1 
-        && soNguyen%10 != 0) {
-        result = "Cách đọc là "+ Math.floor(soNguyen/100)+ " trăm " + " linh "+ soNguyen%10;    
+        && hangChuc == 0 
+        && hangChuc != 1 
+        && hangDV != 0) {
+        result = "Cách đọc là "+ hangTram+ " trăm " + " linh "+ hangDV;    
     } else if(soNguyen <= 999
-        && Math.floor(soNguyen%100/10) != 0 
-        && Math.floor(soNguyen%100/10) != 1 
-        && soNguyen%10 == 0) {
-        result = "Cách đọc là "+ Math.floor(soNguyen/100)+ " trăm "+ Math.floor(soNguyen%100/10)+ " mươi";    
+        && hangChuc != 0 
+        && hangChuc != 1 
+        && hangDV == 0) {
+        result = "Cách đọc là "+ hangTram+ " trăm "+ hangChuc+ " mươi";    
     } else if(soNguyen <= 999
-        && soNguyen%10 != 0 ) {
-        result = "Cách đọc là " + soNguyen%10;    
-        }
+        && hangDV != 0 ) {
+        result = "Cách đọc là " + hangDV;    
+        } 
     document.getElementById("thongbao7").innerHTML = result;
     document.getElementById("thongbao7").classList.add("alert-success");
+}
+
+/*Mô hình 3 khối bài tập 4 nâng cao
+ + Đầu vào
+    giả sử
+        tọa độ của trường học theo trục x và y là 0,0
+        nhập tọa độ và tên của 3 sinh viên
+            Hải(xH,yH)
+            Phúc(xP,yP)
+            Trường(xT,yT)
+        
+ + Xử lý
+    áp dụng định lý pitago cho tam giác vuông => tính chiều dài xa nhất với trường
+ + Đầu ra
+*/
+document.getElementById("xuatToaDo").onclick = function() {
+    var xH = document.getElementById("xH").value*1;
+    var yH = document.getElementById("yH").value*1;
+    var toaDoHai = xH*xH + yH*yH;
+
+    var xP = document.getElementById("xP").value*1;
+    var yP = document.getElementById("yP").value*1;
+    var toaDoPhuc = xP*xP + yP*yP;
+
+    var xT = document.getElementById("xT").value*1;
+    var yT = document.getElementById("yT").value*1;
+    var toaDoTruong = xT*xT + yT*yT;
+    var result=0;
+    if(toaDoHai > toaDoPhuc && toaDoHai > toaDoTruong) {
+        result = "Sinh viên Hải ở xa trường nhất";
+    } else if(toaDoPhuc > toaDoHai && toaDoPhuc > toaDoTruong) {
+        result = "Sinh viên Phúc ở xa trường nhất";
+    } else if(toaDoTruong > toaDoHai && toaDoTruong > toaDoPhuc) {
+        result = "Sinh viên Trường ở xa trường nhất";
+    }
+    document.getElementById("thongbao8").innerHTML= result;
+    console.log(result);
 }
