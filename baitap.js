@@ -20,6 +20,7 @@
  => số tăng dần là sothu2 < sothu1 < sothu3
 
  + Đầu ra
+    xuất theo số tăng dần
 */
 document.getElementById("xuatTangDan").onclick = function() {
     var soThu1 = document.getElementById("soThu1").value*1;
@@ -63,6 +64,7 @@ document.getElementById("xuatTangDan").onclick = function() {
     Nếu là B => xuất lời chào bố
     tương tự mẹ , anh trai, em gái
  + Đầu ra
+    xuất lời chào dựa vào thông tin nhập
 */
 document.getElementById("xuatLoiChao").onclick = function() {
     var ten = document.getElementById("user").value;
@@ -95,6 +97,7 @@ document.getElementById("xuatLoiChao").onclick = function() {
     Nếu so2 chia 2 mà số dư khác 0 là số lẻ, ngược lại số dư = 0 là số chẵn
     Nếu so3 chia 2 mà số dư khác 0 là số lẻ, ngược lại số dư = 0 là số chẵn
  + Đầu ra
+    xuất có bao nhiêu số lẻ và số chẵn
 */
 document.getElementById("xuatSo").onclick = function() {
     var so1 = document.getElementById("so1").value*1;
@@ -134,6 +137,7 @@ document.getElementById("xuatSo").onclick = function() {
     nếu canh1 bằng canh2 và bằng canh3 => tam giac đều
     nếu canh1*canh1 + canh2*canh2 bằng canh3*canh3 => tam giác vuông
  + Đầu ra
+    xuất loại tam giác
 */
 document.getElementById("XuatLoaiTamGiac").onclick = function() {
     var canh1 =document.getElementById("canh1").value*1;
@@ -163,6 +167,7 @@ document.getElementById("XuatLoaiTamGiac").onclick = function() {
  + Xử lý
     nếu nhập ngaỳ 1 tháng 1 năm 1 => tiến lên 1 ngày là ngày 2 tháng 1 năm 1 nhưng dựa vào số ngày tối đa trong tháng (ví dụ tháng 1 có 31 ngày)
  + Đầu ra
+    xuất ngày hôm sau của ngày nhập
 */
 document.getElementById("xuatNgaySau").onclick = function() {
     var ngay = document.getElementById("ngay").value*1;
@@ -234,6 +239,7 @@ document.getElementById("xuatNgaySau").onclick = function() {
  + Xử lý
     nếu nhập ngaỳ 1 tháng 1 năm 1 => lùi đi một ngày là ngày 31 tháng 12 năm 0 nhưng dựa vào số ngày tối đa trong tháng (ví dụ tháng 1 có 31 ngày)
  + Đầu ra
+    xuất ngày hôm trước của ngày nhập
 */
 document.getElementById("xuatNgayTruoc").onclick = function() {
     var day = document.getElementById("day").value*1;
@@ -302,10 +308,11 @@ document.getElementById("xuatNgayTruoc").onclick = function() {
     Nam
 
  + Xử lý
-    nếu nhập tháng 1 => có 31 ngày
+    nếu nhập tháng 1 => có 31 ngày tương tụ các tháng còn lại
     nhập tháng 2 => có 28 ngày 
     nếu là năm nhuận thì số năm chia 4 có phần dư bằng 0 thì tháng 2 có 29 ngày, khác 0 thì 28 ngày
  + Đầu ra
+    xuất số ngày của tháng nhập vào
 */
 document.getElementById("xuatNgay").onclick = function() {
     var Thang = document.getElementById("Thang").value*1;
@@ -329,11 +336,16 @@ document.getElementById("xuatNgay").onclick = function() {
 /*Mô hình 3 khối bài tập 3 nâng cao
  + Đầu vào
     giả sử nhập số nguyên có 3 chữ số
-    soNguyen   
+        soNguyen   
 
  + Xử lý
-    nếu nhập 111 => xuất ra cách đọc
+    áp dụng công thức lấy số hàng trăm hàng chục và hàng đơn vị
+        hangTram = Math.floor(soNguyen/100);
+        hangChuc = Math.floor(soNguyen%100/10);
+        hangDV = soNguyen%10;   
+ 
  + Đầu ra
+    xuất ra cách đọc
 */
 document.getElementById("xuatCachDoc").onclick = function() {
     var soNguyen = document.getElementById("soNguyen").value*1;
@@ -381,6 +393,7 @@ document.getElementById("xuatCachDoc").onclick = function() {
  + Xử lý
     áp dụng định lý pitago cho tam giác vuông => tính chiều dài xa nhất với trường
  + Đầu ra
+    xuất tên sinh viên xa trường nhất
 */
 document.getElementById("xuatToaDo").onclick = function() {
     var xH = document.getElementById("xH").value*1;
