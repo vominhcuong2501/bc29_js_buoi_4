@@ -67,18 +67,19 @@ document.getElementById("xuatTangDan").onclick = function() {
     xuất lời chào dựa vào thông tin nhập
 */
 document.getElementById("xuatLoiChao").onclick = function() {
-    var ten = document.getElementById("user").value;
+    var bo = document.getElementById("bo");
+    var me = document.getElementById("me");
+    var anh = document.getElementById("anh");
+    var em = document.getElementById("em");
     var result = 0;
-    if(ten == "B") {
-        result = "bố";
-    } else if(ten == "M" ) {
-        result = "mẹ";
-    } else if(ten == "A" ) {
-        result = "anh trai";
-    } else if(ten == "E") {
-        result = "em gái";
-    } else if(ten == "" || ten != "B" || ten != "M" || ten != "A" || ten != "E") {
-        result = "Xin hãy nhập thông tin";
+    if(bo.checked) {
+        result = "Bố";
+    } else if(me.checked) {
+        result = "Mẹ";
+    } else if(anh.checked) {
+        result = "Anh trai";
+    } else if(em.checked) {
+        result = "Em gái";
     }
     document.getElementById("thongbao1").innerHTML = "Xin chào " + result;
     document.getElementById("thongbao1").classList.add("alert-success");
