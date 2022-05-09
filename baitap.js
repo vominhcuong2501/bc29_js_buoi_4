@@ -181,7 +181,11 @@ document.getElementById("xuatNgaySau").onclick = function() {
         result = "Ngày: "+ (ngay + 1)+ " tháng: " + thang + " năm: "+ nam;
     } else if( ngay == 31 && thang == 1) {
         result = "Ngày: "+ 1 + " tháng: " + (thang + 1) + " năm: "+ nam; 
-    } else if( ngay < 28 && thang == 2) {
+    } else if( ngay < 29 && thang == 2 && nam%4 == 0) {
+        result = "Ngày: "+ (ngay + 1)+ " tháng: " + thang + " năm: "+ nam; 
+    } else if( ngay == 29 && thang == 2 && nam%4 == 0) {
+        result = "Ngày: "+ 1 + " tháng: " + (thang + 1) + " năm: "+ nam; 
+    }else if( ngay < 28 && thang == 2) {
         result = "Ngày: "+ (ngay + 1)+ " tháng: " + thang + " năm: "+ nam; 
     } else if( ngay == 28 && thang == 2) {
         result = "Ngày: "+ 1 + " tháng: " + (thang + 1) + " năm: "+ nam; 
@@ -225,6 +229,8 @@ document.getElementById("xuatNgaySau").onclick = function() {
         result = "Ngày: "+ (ngay + 1)+ " tháng: " + thang + " năm: "+ nam; 
     } else if( ngay == 31 && thang == 12) {
         result = "Ngày: "+ 1 + " tháng: " + 1 + " năm: "+ (nam + 1); 
+    } else {
+        result = "Không truy xuất được ngày"
     }
     document.getElementById("thongbao4").innerHTML = result;
     document.getElementById("thongbao4").classList.add("alert-success");
@@ -253,6 +259,8 @@ document.getElementById("xuatNgayTruoc").onclick = function() {
         result = "Day: "+ (day - 1) + " month "+ month + " year "+ year;
     } else if( day == 1 && month == 1) {
         result = "Day: "+ 31 + " month "+ 12 + " year " + (year - 1)
+    } else if(1 < day && day <= 29 && month == 2 && year%4 == 0) {
+        result = "Day: "+ (day - 1) + " month "+ month + " year "+ year;
     } else if(1 < day && day <= 28 && month == 2) {
         result = "Day: "+ (day - 1) + " month "+ month + " year "+ year;
     } else if( day == 1 && month == 2) {
